@@ -1,14 +1,14 @@
 {
-  "name": "kongou",
+  "name": "yamakaze",
   "version": "3.0.0",
-  "description": "An example bot on how I implement Shoukaku in a basic level",
+  "description": "A simple waifu bot",
   "scripts": {
     "start": "node index.js",
     "slash": "node src/SlashUpdate.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Deivu/Kongou.git"
+    "url": "git+https://github.com/RinmeSTD/Yamakaze.git"
   },
   "keywords": [
     "Discord",
@@ -21,12 +21,12 @@
     "discordjs",
     "music"
   ],
-  "author": "Deivu (Saya)",
+  "author": "RinmeSTD, Original => Deivu (Saya)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Deivu/Kongou/issues"
+    "url": "https://github.com/RinmeSTD/Yamakaze/issues"
   },
-  "homepage": "https://github.com/Deivu/Kongou#readme",
+  "homepage": "https://github.com/RinmeSTD/Yamakaze#readme",
   "dependencies": {
     "@discordjs/collection": "^0.7.0",
     "@discordjs/rest": "^0.5.0",

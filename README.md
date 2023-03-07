@@ -8,13 +8,11 @@ A Kancolle waifu Discord.JS bot
 </p>
 
 
-> A simple bot to show how I use [Shoukaku](https://github.com/Deivu/Shoukaku) and [Indomitable](https://github.com/Deivu/Indomitable) on your Discord.JS bot
+> This bot implement [Shoukaku](https://github.com/Deivu/Shoukaku) and [Indomitable](https://github.com/Deivu/Indomitable) on your Discord.JS bot
 
 > This supports sharding out of box since it uses Indomitable by default
 
 ### Before you start 
-
-> This uses Shoukaku V3 which is a TS rewrite
 
 > Make sure you have Node >=16.6.0 installed on your system as this uses Discord.JS v13
 
@@ -37,3 +35,4 @@ A Kancolle waifu Discord.JS bot
 ### If you want to contribute just submit a PR.
 
 > Made with ❤️ by @Sāya#0113
+> Folks by [Rinme](https://github.com/rinme)
