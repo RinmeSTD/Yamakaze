@@ -1,13 +1,13 @@
 const { Client, LimitedCollection } = require('discord.js');
 const { Collection } = require('@discordjs/collection');
 const { token } = require('../config.json');
-const KongouLogger = require('./modules/KongouLogger.js');
+const YamakazeLogger = require('./modules/YamakazeLogger.js');
 const ShoukakuHandler = require('./modules/ShoukakuHandler.js');
 const Queue = require('./modules/Queue.js');
 const InteractionHandler = require('./modules/InteractionHandler.js');
 const EventHandler = require('./modules/EventHandler.js');
 
-class Kongou extends Client {
+class Yamakaze extends Client {
     constructor(options) {
         // create cache
         options.makeCache = manager => {
@@ -32,7 +32,7 @@ class Kongou extends Client {
         this.quitting = false;
         this.location = process.cwd();
         
-        this.logger = new KongouLogger();
+        this.logger = new YamakazeLogger();
         this.shoukaku = new ShoukakuHandler(this);
         this.queue = new Queue(this);
         
@@ -54,4 +54,4 @@ class Kongou extends Client {
     }
 }
 
-module.exports = Kongou;
+module.exports = Yamakaze;

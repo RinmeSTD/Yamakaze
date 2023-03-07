@@ -1,8 +1,8 @@
 const { MessageEmbed } = require('discord.js');
-const { ApplicationCommandOptionType } = require('discord-api-types/v9');
-const KongouInteraction = require('../../abstract/KongouInteraction.js');
+const { ApplicationCommandOptionType } = require('discord-api-types/v10');
+const YamakazeInteraction = require('../../abstract/YamakazeInteraction.js');
 
-class Help extends KongouInteraction {
+class Help extends YamakazeInteraction {
     get name() {
         return 'help';
     }
@@ -31,9 +31,10 @@ class Help extends KongouInteraction {
                 .setTitle('• Help Menu')
                 .setColor(this.client.color)
                 .setDescription('Do /help [command] for a detailed help about that command')
-                .addField('<:kongou_desu:545882696048443392> Info', this.client.interactions.commands.filter(cmd => cmd.category === 'Info').map(cmd => `/${cmd.name}`).join(', '))
-                .addField('<:love_kongou:448387538617630751> Music', this.client.interactions.commands.filter(cmd => cmd.category === 'Music').map(cmd => `/${cmd.name}`).join(', '))
-                .addField('<:be_happy:448387627163582464> Links', `[Source](https://github.com/Deivu/Kongou) | [Developer](https://github.com/Deivu) | [Invite](${Help.invite(this.client.user.id)}) | [Support](https://discord.gg/FVqbtGu)`)
+                // .addField('<:Yamakaze_desu:545882696048443392> Info', this.client.interactions.commands.filter(cmd => cmd.category === 'Info').map(cmd => `/${cmd.name}`).join(', '))
+                .addField('emojihere Info', this.client.interactions.commands.filter(cmd => cmd.category === 'Info').map(cmd => `/${cmd.name}`).join(', '))
+                .addField('emojihere Music', this.client.interactions.commands.filter(cmd => cmd.category === 'Music').map(cmd => `/${cmd.name}`).join(', '))
+                .addField('emojihere Links', `[Source](https://github.com/RinmeSTD/Yamakaze) | [OG](https://github.com/Deivu) | [Developer](https://github.com/rinme) | [Invite](${Help.invite(this.client.user.id)}) | [Support](https://discord.gg/FVqbtGu)`)
                 .setFooter(`The Shipgirl Project • ${this.client.interactions.commands.size} commands loaded`);
             return interaction.reply({ embeds: [ embed ] });
         }

@@ -1,7 +1,7 @@
-const KongouInteraction = require('../../abstract/KongouInteraction.js');
+const YamakazeInteraction = require('../../abstract/YamakazeInteraction.js');
 const Wait = require('util').promisify(setTimeout);
 
-class Stop extends KongouInteraction {
+class Stop extends YamakazeInteraction {
     get name() {
         return 'stop';
     }

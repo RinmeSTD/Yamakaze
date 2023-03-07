@@ -1,4 +1,4 @@
-const KongouDispatcher = require('./KongouDispatcher.js');
+const YamakazeDispatcher = require('./YamakazeDispatcher.js');
 
 class Queue extends Map {
     constructor(client, iterable) {
@@ -17,7 +17,7 @@ class Queue extends Map {
                 channelId: member.voice.channelId
             });
             this.client.logger.debug(player.constructor.name, `New connection @ guild "${guild.id}"`);
-            const dispatcher = new KongouDispatcher({
+            const dispatcher = new YamakazeDispatcher({
                 client: this.client,
                 guild,
                 channel,

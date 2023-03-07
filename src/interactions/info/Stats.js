@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
-const KongouInteraction = require('../../abstract/KongouInteraction.js');
+const YamakazeInteraction = require('../../abstract/YamakazeInteraction.js');
 
-class Stats extends KongouInteraction {
+class Stats extends YamakazeInteraction {
     get name() {
         return 'stats';
     }

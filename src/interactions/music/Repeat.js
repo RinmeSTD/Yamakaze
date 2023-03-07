@@ -1,7 +1,7 @@
-const { ApplicationCommandOptionType } = require('discord-api-types/v9');
-const KongouInteraction = require('../../abstract/KongouInteraction.js');
+const { ApplicationCommandOptionType } = require('discord-api-types/v10');
+const YamakazeInteraction = require('../../abstract/YamakazeInteraction.js');
 
-class Repeat extends KongouInteraction {
+class Repeat extends YamakazeInteraction {
     get name() {
         return 'repeat';
     }

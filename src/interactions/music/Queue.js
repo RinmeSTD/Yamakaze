@@ -1,9 +1,9 @@
 
-const KongouInteraction = require('../../abstract/KongouInteraction.js');
-const KongouDispatcher = require('../../modules/KongouDispatcher.js');
+const YamakazeInteraction = require('../../abstract/YamakazeInteraction.js');
+const YamakazeDispatcher = require('../../modules/YamakazeDispatcher.js');
 const { MessageEmbed } = require('discord.js');
 
-class Queue extends KongouInteraction {
+class Queue extends YamakazeInteraction {
     get name() {
         return 'queue';
     }
@@ -22,7 +22,7 @@ class Queue extends KongouInteraction {
             .setColor(this.client.color)
             .setTitle('Now Playing')
             .setThumbnail(`https://img.youtube.com/vi/${dispatcher.current.info.identifier}/default.jpg`)
-            .setDescription(`[${dispatcher.current.info.title}](${dispatcher.current.info.uri}) [${KongouDispatcher.humanizeTime(dispatcher.current.info.length)}]`)
+            .setDescription(`[${dispatcher.current.info.title}](${dispatcher.current.info.uri}) [${YamakazeDispatcher.humanizeTime(dispatcher.current.info.length)}]`)
             .setFooter(`• ${dispatcher.queue.length} total songs in queue`);
         if (queue.length) embed.addField('Up Next', queue.map((track, index) => `**${index + 1}.)** \`${track.info.title}\``).join('\n'));
         await interaction.reply({ embeds: [ embed ] });
