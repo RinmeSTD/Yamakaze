@@ -1,10 +1,10 @@
-# Kongou
-A waifu Discord.JS bot example
+# Yamakaze
+A Kancolle waifu Discord.JS bot
 
-> The ShipGirl Project. Kongou. `(c) Kancolle for Kongou`.
+> The ShipGirl Project. Yamakaze. `(c) Kancolle for Yamakaze`.
 
 <p align="center">
-  <img src="https://vignette.wikia.nocookie.net/kancolle/images/d/d6/Kongou_Kai_Ni_Shopping_Full.png/revision/latest">
+  <img src="https://yksk.kancollewiki.net/w/images/4/48/Yamakaze_Kai_Ni_Full_Summer_2022.png">
 </p>
 
 
