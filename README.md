@@ -1,20 +1,18 @@
-# Kongou
-A waifu Discord.JS bot example
+# Yamakaze
+A Kancolle waifu Discord.JS bot
 
-> The ShipGirl Project. Kongou. `(c) Kancolle for Kongou`.
+> The ShipGirl Project. Yamakaze. `(c) Kancolle for Yamakaze`.
 
 <p align="center">
-  <img src="https://vignette.wikia.nocookie.net/kancolle/images/d/d6/Kongou_Kai_Ni_Shopping_Full.png/revision/latest">
+  <img src="https://yksk.kancollewiki.net/w/images/4/48/Yamakaze_Kai_Ni_Full_Summer_2022.png">
 </p>
 
 
-> A simple bot to show how I use [Shoukaku](https://github.com/Deivu/Shoukaku) and [Indomitable](https://github.com/Deivu/Indomitable) on your Discord.JS bot
+> This bot implement [Shoukaku](https://github.com/Deivu/Shoukaku) and [Indomitable](https://github.com/Deivu/Indomitable) on your Discord.JS bot
 
 > This supports sharding out of box since it uses Indomitable by default
 
 ### Before you start 
-
-> This uses Shoukaku V3 which is a TS rewrite
 
 > Make sure you have Node >=16.6.0 installed on your system as this uses Discord.JS v13
 
@@ -37,3 +35,4 @@ A waifu Discord.JS bot example
 ### If you want to contribute just submit a PR.
 
 > Made with ❤️ by @Sāya#0113
+> Folks by [Rinme](https://github.com/rinme)

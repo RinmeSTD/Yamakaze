@@ -13,7 +13,7 @@ const customClientOptions = {
 
 const sharderOptions = {
     clientOptions: Util.mergeDefault(Constants.DefaultOptions, customClientOptions),
-    clusterCount: 2,
+    clusterCount: 4,
     shardCount: 8,
     client: YamakazeClient,
     autoRestart: true,
