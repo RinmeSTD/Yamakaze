@@ -1,4 +1,6 @@
 {
-	"owners": ["your account id"],
-	"token": "bot token"
+	"owners": ["owners id here", "in case you have alt or colab"],
+	"shardCount": 8,
+	"clusterCount": 4,
+	"token": "token here"
 }

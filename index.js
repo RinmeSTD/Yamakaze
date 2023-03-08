@@ -1,6 +1,6 @@
 const { Constants, GatewayIntentBits, mergeDefault } = require('discord.js');
 const { Indomitable } = require('indomitable');
-const { token } = require('./config.json');
+const { token , clusterCount, shardCount } = require('./config.json');
 const { GUILDS, GUILD_MEMBERS, GUILD_BANS, GUILD_VOICE_STATES, GUILD_MESSAGES, GUILD_MESSAGE_REACTIONS } = GatewayIntentBits;
 const YamakazeClient = require('./src/Yamakaze.js');
 
@@ -13,8 +13,8 @@ const customClientOptions = {
 
 const sharderOptions = {
     clientOptions: mergeDefault(Constants.DefaultOptions, customClientOptions),
-    clusterCount: 4,
-    shardCount: 8,
+    clusterCount,
+    shardCount,
     client: YamakazeClient,
     autoRestart: true,
     token
