@@ -1,5 +1,5 @@
 const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
+const { Routes } = require('discord-api-types/v10');
 const { readdirSync } = require('fs');
 const { token } = require('../config.json');
 const { dev, clientId, guildId } = require('../slash-reloader-config');
