@@ -16,7 +16,7 @@ class EventHandler {
         for (let event of events) {
             event = new (require(`../events/${event}`))(this.client);
             const exec = event.exec.bind(event);
-            event.once ? this.client.once(event.name,  event.exec.bind(event)) : this.client.on(event.name, exec);
+            event.once ? this.client.once(event.name, event.exec.bind(event)) : this.client.on(event.name, exec);
             index++;
         }
         this.client.logger.debug(this.constructor.name, `Loaded ${index} client event(s)`);

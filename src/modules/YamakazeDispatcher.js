@@ -22,7 +22,7 @@ class KongouDispatcher {
             .on('start', () => {
                 if (this.repeat === 'one') {
                     if (_notifiedOnce) return;
-                    else _notifiedOnce = true; 
+                    else _notifiedOnce = true;
                 }
                 else if (this.repeat === 'all' || this.repeat === 'off') {
                     _notifiedOnce = false;
@@ -33,7 +33,7 @@ class KongouDispatcher {
                     .setDescription(`${this.current.info.title} [${KongouDispatcher.humanizeTime(this.current.info.length)}]`)
                     .setURL(this.current.info.uri);
                 this.channel
-                    .send({ embeds: [ embed ] })
+                    .send({ embeds: [embed] })
                     .catch(() => null);
             })
             .on('end', () => {
@@ -53,7 +53,7 @@ class KongouDispatcher {
     static humanizeTime(ms) {
         const seconds = Math.floor(ms / 1000 % 60);
         const minutes = Math.floor(ms / 1000 / 60 % 60);
-        return [ minutes.toString().padStart(2, '0'), seconds.toString().padStart(2, '0') ].join(':');
+        return [minutes.toString().padStart(2, '0'), seconds.toString().padStart(2, '0')].join(':');
     }
 
     get exists() {
@@ -67,7 +67,7 @@ class KongouDispatcher {
             .setVolume(0.3)
             .playTrack({ track: this.current.track });
     }
-    
+
     destroy(reason) {
         this.queue.length = 0;
         this.player.connection.disconnect();

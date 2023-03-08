@@ -1,6 +1,6 @@
 const EventEmitter = require('events');
 
-class YamakazeEvent extends  EventEmitter {
+class YamakazeEvent extends EventEmitter {
     constructor(client) {
         super();
         this.client = client;

@@ -9,7 +9,7 @@ class Play extends YamakazeInteraction {
     get description() {
         return 'Automatically fetches the video(s) and joins the voice channel you are in!';
     }
-    
+
     get options() {
         return [{
             name: 'query',
@@ -38,7 +38,7 @@ class Play extends YamakazeInteraction {
         const node = this.client.shoukaku.getNode();
         if (Play.checkURL(query)) {
             const result = await node.rest.resolve(query);
-            if (!result?.tracks.length) 
+            if (!result?.tracks.length)
                 return interaction.editReply('Teitoku, I didn\'t find any song on the query you provided!');
             const track = result.tracks.shift();
             const playlist = result.loadType === 'PLAYLIST_LOADED';
@@ -47,7 +47,7 @@ class Play extends YamakazeInteraction {
                 return interaction.editReply('Teitoku, I\'m currently connecting to a voice channel');
             if (playlist) {
                 for (const track of result.tracks) await this.client.queue.handle(interaction.guild, interaction.member, interaction.channel, node, track);
-            }   
+            }
             await interaction
                 .editReply(playlist ? `Added the playlist \`${result.playlistInfo.name}\` in queue!` : `Added the track \`${track.info.title}\` in queue!`)
                 .catch(() => null);

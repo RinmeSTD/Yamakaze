@@ -11,7 +11,7 @@ class Useless extends YamakazeInteraction {
 
     async run({ interaction }) {
         const message = await interaction.deferReply({ fetchReply: true });
-        await interaction.editReply(`1+1 = ${1+1}`);
+        await interaction.editReply(`1+1 = ${1 + 1}`);
     }
 }
 module.exports = Useless;

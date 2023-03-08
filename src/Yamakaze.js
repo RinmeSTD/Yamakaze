@@ -11,10 +11,10 @@ class Yamakaze extends Client {
     constructor(options) {
         // create cache
         options.makeCache = manager => {
-            switch(manager.name) {
+            switch (manager.name) {
                 // Disable Cache
-                case 'GuildEmojiManager': 
-                case 'GuildBanManager': 
+                case 'GuildEmojiManager':
+                case 'GuildBanManager':
                 case 'GuildInviteManager':
                 case 'GuildStickerManager':
                 case 'StageInstanceManager':
@@ -31,17 +31,17 @@ class Yamakaze extends Client {
         this.color = 0x7E686C;
         this.quitting = false;
         this.location = process.cwd();
-        
+
         this.logger = new YamakazeLogger();
         this.shoukaku = new ShoukakuHandler(this);
         this.queue = new Queue(this);
-        
+
         this.interactions = new InteractionHandler(this).build();
         this.events = new EventHandler(this).build();
-        
+
         ['beforeExit', 'SIGUSR1', 'SIGUSR2', 'SIGINT', 'SIGTERM'].map(event => process.once(event, this.exit.bind(this)));
     }
-        
+
     async login() {
         await super.login(token);
         return this.constructor.name;

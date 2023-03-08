@@ -15,9 +15,9 @@ class InteractionHandler extends EventEmitter {
     }
 
     static checkPermission(permissions, interaction) {
-        if (permissions.includes('OWNER')) 
+        if (permissions.includes('OWNER'))
             return config.owners.includes(interaction.user.id);
-        else 
+        else
             return interaction.channel.permissionsFor(interaction.member).has(permissions);
     }
 
@@ -57,7 +57,7 @@ class InteractionHandler extends EventEmitter {
 
             // Node's require() keeps a cache, which we wanna clear prior to reloading the modules
             Object.keys(require.cache).forEach(function (key) { delete require.cache[key]; });
-    
+
             this.build();
         } catch (error) {
             // this.commands = stashed;
@@ -92,16 +92,16 @@ class InteractionHandler extends EventEmitter {
             if (!interaction.isCommand()) return;
             const command = this.commands.get(interaction.commandName);
             if (!command) return;
-            if (command.permissions && !InteractionHandler.checkPermission(command.permissions, interaction)) 
+            if (command.permissions && !InteractionHandler.checkPermission(command.permissions, interaction))
                 return interaction.reply('Teitoku, you don\'t have the required permissions to use this command!');
             // player related stuff
-            if (command.playerCheck?.voice && !interaction.member.voice.channelId) 
+            if (command.playerCheck?.voice && !interaction.member.voice.channelId)
                 return interaction.reply('Teitoku, you are not in a voice channel!');
             const dispatcher = this.client.queue.get(interaction.guildId);
-            if (command.playerCheck?.dispatcher && !dispatcher) 
+            if (command.playerCheck?.dispatcher && !dispatcher)
                 return interaction.reply('Teitoku, Nothing is playing in this guild!');
-            if (command.playerCheck?.channel && dispatcher.player.connection.channelId !== interaction.member.voice.channelId) 
-                return interaction.reply('Teitoku, you are not in the same voice channel I\'m currently connected to!');         
+            if (command.playerCheck?.channel && dispatcher.player.connection.channelId !== interaction.member.voice.channelId)
+                return interaction.reply('Teitoku, you are not in the same voice channel I\'m currently connected to!');
             // execute le commandz
             this.client.logger.log(this.constructor.name, `Executing command ${command.name} (@${command.uid})`);
             await command.run({ interaction, dispatcher });
@@ -112,13 +112,13 @@ class InteractionHandler extends EventEmitter {
                 .setDescription(`\`\`\`js\n ${error.toString()}\`\`\``)
                 .setTimestamp()
                 .setFooter(this.client.user.username, this.client.user.displayAvatarURL());
-            if (interaction.replied || interaction.deferred) 
+            if (interaction.replied || interaction.deferred)
                 await interaction
-                    .editReply({ embeds: [ embed ] })
+                    .editReply({ embeds: [embed] })
                     .catch(error => this.emit('error', error));
-            else 
+            else
                 await interaction
-                    .reply({ embeds: [ embed ] })
+                    .reply({ embeds: [embed] })
                     .catch(error => this.emit('error', error));
             this.emit('error', error);
         }
