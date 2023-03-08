@@ -9,7 +9,7 @@ class Volume extends YamakazeInteraction {
     get description() {
         return 'Sets the volume of this playback.';
     }
-    
+
     get options() {
         return [{
             name: 'value',
@@ -24,9 +24,9 @@ class Volume extends YamakazeInteraction {
     }
 
     static inRange(x, min, max) {
-        return (x - min) * ( x - max) <= 0;
+        return (x - min) * (x - max) <= 0;
     }
-    
+
     async run({ interaction, dispatcher }) {
         let volume = interaction.options.getInteger('value', true);
         if (!Volume.inRange(volume, 1, 200)) volume = 30;

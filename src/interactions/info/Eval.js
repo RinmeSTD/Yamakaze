@@ -45,7 +45,7 @@ class Eval extends YamakazeInteraction {
             .setDescription(`\`\`\`js\n${Eval.trim(res, 4000)}\`\`\``)
             .setTimestamp()
             .setFooter(this.client.user.username, this.client.user.displayAvatarURL());
-        await interaction.editReply({ embeds: [ embed ] });
+        await interaction.editReply({ embeds: [embed] });
     }
 }
 module.exports = Eval;

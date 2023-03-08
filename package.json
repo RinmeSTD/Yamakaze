@@ -28,17 +28,18 @@
   },
   "homepage": "https://github.com/RinmeSTD/Yamakaze#readme",
   "dependencies": {
-    "@discordjs/collection": "^0.7.0",
+    "@discordjs/collection": "^1.3.0",
     "@discordjs/rest": "^1.5.0",
-    "bufferutil": "^4.0.6",
+    "bufferutil": "^4.0.7",
+    "discord-api-types": "^0.37.35",
     "discord.js": "^13.8.0",
-    "indomitable": "github:Deivu/Indomitable#e0dcefcf209ef7d94d0ba1c08bedc689d9fb5ebc",
-    "msgpackr": "^1.6.1",
-    "shoukaku": "^3.1.0",
-    "utf-8-validate": "^5.0.9",
-    "uuid": "^8.3.2"
+    "indomitable": "^2.1.0",
+    "msgpackr": "^1.8.5",
+    "shoukaku": "^3.3.1",
+    "utf-8-validate": "^6.0.3",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.16.0"
+    "eslint": "^8.35.0"
   }
 }

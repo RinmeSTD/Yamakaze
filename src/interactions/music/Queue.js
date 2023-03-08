@@ -25,7 +25,7 @@ class Queue extends YamakazeInteraction {
             .setDescription(`[${dispatcher.current.info.title}](${dispatcher.current.info.uri}) [${YamakazeDispatcher.humanizeTime(dispatcher.current.info.length)}]`)
             .setFooter(`• ${dispatcher.queue.length} total songs in queue`);
         if (queue.length) embed.addField('Up Next', queue.map((track, index) => `**${index + 1}.)** \`${track.info.title}\``).join('\n'));
-        await interaction.reply({ embeds: [ embed ] });
+        await interaction.reply({ embeds: [embed] });
     }
 }
 module.exports = Queue;

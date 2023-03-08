@@ -1,7 +1,7 @@
 const { Shoukaku, Connectors } = require('shoukaku');
 const servers = require('../../lavalink-server.json');
 const options = require('../../shoukaku-options.js');
-    
+
 class ShoukakuHandler extends Shoukaku {
     constructor(client) {
         super(new Connectors.DiscordJS(client), servers, options);
