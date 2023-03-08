@@ -30,7 +30,8 @@
   "dependencies": {
     "@discordjs/collection": "^0.7.0",
     "bufferutil": "^4.0.7",
-    "discord.js": "^14.7.2-dev.1678234215-4367ab9.0",
+    "discord-api-types": "^0.37.35",
+    "discord.js": "^14.7.1",
     "indomitable": "github:Deivu/Indomitable#master",
     "msgpackr": "^1.8.5",
     "shoukaku": "^3.3.1",
