@@ -1,6 +1,6 @@
-const KongouEvent = require('../abstract/KongouEvent.js');
+const YamakazeEvent = require('../abstract/YamakazeEvent.js');
 
-class Ratelimit extends KongouEvent {
+class Ratelimit extends YamakazeEvent {
     get name() {
         return 'rateLimit';
     }

@@ -1,7 +1,7 @@
-const KongouEvent = require('../abstract/KongouEvent.js');
+const YamakazeEvent = require('../abstract/YamakazeEvent.js');
 
 
-class GuildDelete extends KongouEvent {
+class GuildDelete extends YamakazeEvent {
     get name() {
         return 'guildDelete';
     }

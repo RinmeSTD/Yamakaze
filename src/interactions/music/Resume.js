@@ -1,7 +1,7 @@
 
-const KongouInteraction = require('../../abstract/KongouInteraction.js');
+const YamakazeInteraction = require('../../abstract/YamakazeInteraction.js');
 
-class Pause extends KongouInteraction {
+class Pause extends YamakazeInteraction {
     get name() {
         return 'resume';
     }

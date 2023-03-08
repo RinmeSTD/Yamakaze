@@ -1,7 +1,7 @@
 
-const KongouInteraction = require('../../abstract/KongouInteraction.js');
+const YamakazeInteraction = require('../../abstract/YamakazeInteraction.js');
 
-class Shuffle extends KongouInteraction {
+class Shuffle extends YamakazeInteraction {
     get name() {
         return 'shuffle';
     }
