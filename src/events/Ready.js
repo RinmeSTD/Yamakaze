@@ -26,7 +26,7 @@ class Ready extends YamakazeEvent {
             this.client.shard.broadcastEval(() => process.memoryUsage()),
         ]);
         const statuses = [
-            { type: 'LISTENING', message: `私は ${guilds.reduce((sum, count) => sum + count)} と ${channels.reduce((sum, count) => sum + count)}` },
+            { type: 'LISTENING', message: `私は ${guilds.reduce((sum, count) => sum + count)}ギルド と ${channels.reduce((sum, count) => sum + count)}チャネル` },
             { type: 'PLAYING', message: '横に行って…いい？' },
             { type: 'LISTENING', message: `${Ready.convertBytes(memory.reduce((sum, memory) => sum + memory.rss, 0))}以内にシャード ${shardCount} つ、クラスタ ${clusterCount} つ` },
             { type: 'PLAYING', message: '両舷いっぱい！行け！' },
