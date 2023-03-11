@@ -50,15 +50,15 @@ class Stats extends YamakazeInteraction {
             .setColor(this.client.color)
             .setTitle('Status')
             .setDescription(`\`\`\`ml\n
-Uptime   :: ${Stats.uptimeConvert(process.uptime())}
+Uptime        :: ${Stats.uptimeConvert(process.uptime())}
 
-Guilds   :: ${guilds.reduce((sum, count) => sum + count)}
-Channels :: ${channels.reduce((sum, count) => sum + count)}
-Players  :: ${players.reduce((sum, count) => sum + count)}
+Guilds        :: ${guilds.reduce((sum, count) => sum + count)}
+Channels      :: ${channels.reduce((sum, count) => sum + count)}
+Players       :: ${players.reduce((sum, count) => sum + count)}
 
-Clusters :: ${clusterCount}
-Shards   :: ${shardCount}
-Memory   :: ${Stats.convertBytes(memory.reduce((sum, memory) => sum + memory.rss, 0))}\`\`\``)
+TotalClusters :: ${clusterCount}
+TotalShards   :: ${shardCount}
+Memory        :: ${Stats.convertBytes(memory.reduce((sum, memory) => sum + memory.rss, 0))}\`\`\``)
             .setTimestamp()
             .setFooter(this.client.user.username, this.client.user.displayAvatarURL());
         await interaction.reply({ embeds: [embed] });
