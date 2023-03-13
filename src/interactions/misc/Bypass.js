@@ -3,13 +3,13 @@ const { ApplicationCommandOptionType } = require('discord-api-types/v10');
 const YamakazeInteraction = require('../../abstract/YamakazeInteraction.js');
 const axios = require('axios');
 
-class Link extends YamakazeInteraction {
+class Bypass extends YamakazeInteraction {
     get name() {
-        return 'link';
+        return 'bypass';
     }
 
     get description() {
-        return 'Bypass the link this was made for linkvertise!';
+        return 'Bypass the url this was made for linkvertise!';
     }
 
     get options() {
@@ -30,7 +30,7 @@ class Link extends YamakazeInteraction {
                 .setTitle('No url')
                 .setDescription(
                     `\`\`\`ml\n
-Please put the link :(\`\`\``
+Please put the url :(\`\`\``
                 )
                 .setTimestamp()
                 .setFooter(
@@ -42,11 +42,10 @@ Please put the link :(\`\`\``
 
             const embed = new MessageEmbed()
                 .setColor(this.client.color)
-                .setTitle('Link founded')
+                .setTitle('Destination founded')
                 .setDescription(
                     `\`\`\`ml\n
-Input  ::    ${url}
-Output ::    ${
+${
     await axios.get(`https://bypass.pm/bypass2?url=${url}`)
         .then(respond => {
             return respond.data.destination;
@@ -61,4 +60,4 @@ Output ::    ${
         }
     }
 }
-module.exports = Link;
+module.exports = Bypass;
