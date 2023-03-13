@@ -37,7 +37,7 @@ class Ready extends YamakazeEvent {
             if (i > statuses.length - 1) i = 0;
             this.client.user.setActivity(`${statuses[i].message}`, { type: `${statuses[i].type}` });
             i++;
-        }, 15000);
+        }, 60000);
 
     }
 }
