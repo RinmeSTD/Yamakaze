@@ -20,7 +20,7 @@ class Useless extends YamakazeInteraction {
         const maththing = ['+', '-', '×', '÷'];
 
         const random = Math.floor(Math.random() * maththing.length);
-        const message = await interaction.deferReply({ fetchReply: true });
+        await interaction.deferReply({ fetchReply: true });
         await interaction.editReply(`${Useless.getRandomIntInclusive(0, 1234567890)} ${random, maththing[random]} ${Useless.getRandomIntInclusive(0, 1234567890)} = ${Useless.getRandomIntInclusive(0, 123456789012345)}`);
     }
 }
