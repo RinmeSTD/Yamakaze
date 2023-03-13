@@ -49,7 +49,7 @@ Input  ::    ${url}
 Output ::    ${
     await axios.get(`https://bypass.pm/bypass2?url=${url}`)
         .then(respond => {
-            return(respond.data.destination);
+            return respond.data.destination;
         })
 }\`\`\``)
                 .setTimestamp()

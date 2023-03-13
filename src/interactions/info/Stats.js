@@ -23,7 +23,7 @@ class Stats extends YamakazeInteraction {
     static uptimeConvert(uptime) {
 
         const hrs = ~~(uptime / 3600);
-        const mins = ~~((uptime % 3600) / 60);
+        const mins = ~~(uptime % 3600 / 60);
         const secs = ~~uptime % 60;
 
         let ret = '';

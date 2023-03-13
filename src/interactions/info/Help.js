@@ -34,6 +34,7 @@ class Help extends YamakazeInteraction {
                 // .addField('<:Yamakaze_desu:545882696048443392> Info', this.client.interactions.commands.filter(cmd => cmd.category === 'Info').map(cmd => `/${cmd.name}`).join(', '))
                 .addField('emojihere Info', this.client.interactions.commands.filter(cmd => cmd.category === 'Info').map(cmd => `/${cmd.name}`).join(', '))
                 .addField('emojihere Music', this.client.interactions.commands.filter(cmd => cmd.category === 'Music').map(cmd => `/${cmd.name}`).join(', '))
+                .addField('emojihere Misc', this.client.interactions.commands.filter(cmd => cmd.category === 'Tool').map(cmd => `/${cmd.name}`).join(', '))
                 .addField('emojihere Links', `[Source](https://github.com/RinmeSTD/Yamakaze) | [OG](https://github.com/Deivu) | [Developer](https://github.com/rinme) | [Invite](${Help.invite(this.client.user.id)}) | [Support](https://discord.gg/FVqbtGu)`)
                 .setFooter(`The Shipgirl Project • ${this.client.interactions.commands.size} commands loaded`);
             return interaction.reply({ embeds: [embed] });
