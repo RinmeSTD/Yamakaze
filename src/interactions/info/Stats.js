@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const YamakazeInteraction = require('../../abstract/YamakazeInteraction.js');
+const { shardCount, clusterCount } = require('../../../config.json');
 
 class Stats extends YamakazeInteraction {
     get name() {
@@ -19,6 +20,25 @@ class Stats extends YamakazeInteraction {
             return `${Math.round(MB)} MB`;
     }
 
+    static uptimeConvert(uptime) {
+
+        const hrs = ~~(uptime / 3600);
+        const mins = ~~(uptime % 3600 / 60);
+        const secs = ~~uptime % 60;
+
+        let ret = '';
+
+        if (hrs > 0) {
+            ret += '' + hrs + ':' + (mins < 10 ? '0' : '');
+        }
+
+        ret += '' + mins + ':' + (secs < 10 ? '0' : '');
+        ret += '' + secs;
+
+        return ret;
+    }
+
+
     async run({ interaction }) {
         const [guilds, channels, memory, players] = await Promise.all([
             this.client.shard.broadcastEval(client => client.guilds.cache.size),
@@ -30,10 +50,15 @@ class Stats extends YamakazeInteraction {
             .setColor(this.client.color)
             .setTitle('Status')
             .setDescription(`\`\`\`ml\n
-Guilds   :: ${guilds.reduce((sum, count) => sum + count)}
-Channels :: ${channels.reduce((sum, count) => sum + count)}
-Players  :: ${players.reduce((sum, count) => sum + count)}
-Memory   :: ${Stats.convertBytes(memory.reduce((sum, memory) => sum + memory.rss, 0))}\`\`\``)
+Uptime        :: ${Stats.uptimeConvert(process.uptime())}
+
+Guilds        :: ${guilds.reduce((sum, count) => sum + count)}
+Channels      :: ${channels.reduce((sum, count) => sum + count)}
+Players       :: ${players.reduce((sum, count) => sum + count)}
+
+TotalClusters :: ${clusterCount}
+TotalShards   :: ${shardCount}
+Memory        :: ${Stats.convertBytes(memory.reduce((sum, memory) => sum + memory.rss, 0))}\`\`\``)
             .setTimestamp()
             .setFooter(this.client.user.username, this.client.user.displayAvatarURL());
         await interaction.reply({ embeds: [embed] });
