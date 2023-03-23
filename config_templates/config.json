@@ -4,5 +4,5 @@
   "owners": ["your account id"],
   "token": "bot token - https://discord.com/developers/applications/",
   "ipInfoApi": "to use lookup command - https://ipinfo.io/developers",
-  "imgbb": "to use saucenao api you need first, upload and then get direct link to image - https://api.imgbb.com/ "
+  "sauceNaoKey": "to use saucenao api - https://saucenao.com/user.php?page=search-api "
 }
