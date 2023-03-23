@@ -1,8 +1,15 @@
 const { MessageEmbed } = require('discord.js');
 const { ApplicationCommandOptionType } = require('discord-api-types/v10');
 const YamakazeInteraction = require('../../abstract/YamakazeInteraction.js');
-const axios = require('axios');
+const { IPinfoWrapper, LruCache } = require('node-ipinfo');
+const { ipInfoApi } = require('../../../config.json');
 
+const cacheOptions = {
+    max: 5000,
+    maxAge: 24 * 1000 * 60 * 60,
+};
+const cache = new LruCache(cacheOptions);
+const ipinfo = new IPinfoWrapper(ipInfoApi, cache);
 class LookUp extends YamakazeInteraction {
     get name() {
         return 'lookup';
@@ -21,7 +28,7 @@ class LookUp extends YamakazeInteraction {
             },
         ];
     }
-
+    
     async run({ interaction }) {
         let ip = interaction.options.getString('ip');
         if (!ip) {
@@ -46,11 +53,20 @@ Please put the IP address :(\`\`\``
                 .setDescription(
                     `\`\`\`ml\n
 ${
-    await axios.get(`http://ip-api.com/json/${ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,currency,isp,org,as,reverse,mobile,query`)
-        .then(respond => {
-            var out = JSON.stringify(respond.data, null, 4);
-            return out;
-        })
+    await ipinfo.lookupIp(ip).then((response) => {
+
+        return(
+            `IP            ::      ${response.ip}
+Hostname      ::      ${response.hostname}
+City          ::      ${response.city}
+Region        ::      ${response.region}
+Country       ::      ${response.country}
+Location      ::      ${response.loc}
+Postal        ::      ${response.postal}
+Organization  ::      ${response.org}
+Timezone      ::      ${response.timezone}`
+        );
+    })
 }\`\`\``)
                 .setTimestamp()
                 .setFooter(
