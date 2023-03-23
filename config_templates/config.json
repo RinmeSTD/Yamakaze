@@ -2,5 +2,6 @@
   "shardCount": 8,
   "clusterCount": 4,
   "owners": ["your account id"],
-  "token": "bot token"
+  "token": "bot token",
+  "ipInfoApi": "to use lookup command"
 }
