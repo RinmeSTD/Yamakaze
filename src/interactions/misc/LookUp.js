@@ -28,9 +28,35 @@ class LookUp extends YamakazeInteraction {
             },
         ];
     }
-    
+
     async run({ interaction }) {
         let ip = interaction.options.getString('ip');
+
+        function isValidIPAddress(ip) {
+            // Regular expression to match the IP address pattern
+            const ipPattern = /^(\d{1,3}\.){3}\d{1,3}$/;
+
+            // Test if the given string matches the pattern
+            if (!ipPattern.test(ip)) {
+                return false;
+            }
+
+            // Split the IP address into its individual parts
+            const parts = ip.split('.');
+
+            // Check if each part is a number between 0 and 255
+            for (let i = 0; i < parts.length; i++) {
+                const part = parseInt(parts[i]);
+                if (isNaN(part) || part < 0 || part > 255) {
+                    return false;
+                }
+            }
+
+            // All checks pass, so the IP address is valid
+            return true;
+        }
+
+
         if (!ip) {
             const embed = new MessageEmbed()
                 .setColor(this.client.color)
@@ -46,16 +72,16 @@ Please put the IP address :(\`\`\``
                 );
             return interaction.reply({ embeds: [embed] });
         } else {
+            if (isValidIPAddress(ip)) {
 
-            const embed = new MessageEmbed()
-                .setColor(this.client.color)
-                .setTitle('We got them')
-                .setDescription(
-                    `\`\`\`ml\n
-${
-    await ipinfo.lookupIp(ip).then((response) => {
+                const embed = new MessageEmbed()
+                    .setColor(this.client.color)
+                    .setTitle('We got them')
+                    .setDescription(
+                        `\`\`\`ml\n
+${await ipinfo.lookupIp(ip).then((response) => {
 
-        return(
+        return (
             `IP            ::      ${response.ip}
 Hostname      ::      ${response.hostname}
 City          ::      ${response.city}
@@ -68,12 +94,22 @@ Timezone      ::      ${response.timezone}`
         );
     })
 }\`\`\``)
-                .setTimestamp()
-                .setFooter(
-                    this.client.user.username,
-                    this.client.user.displayAvatarURL()
-                );
-            return interaction.reply({ embeds: [embed] });
+                    .setTimestamp()
+                    .setFooter(
+                        this.client.user.username,
+                        this.client.user.displayAvatarURL()
+                    );
+                return interaction.reply({ embeds: [embed] });
+            } else {
+                const embed = new MessageEmbed()
+                    .setColor(this.client.color)
+                    .setTitle('That not a valid url :(')
+                    .setThumbnail('https://lastfm.freetls.fastly.net/i/u/300x300/66fb1457a2b95d5d0ba91c6b7a834e89.gif');
+                // Create the initial message with the first result
+                return interaction.reply({
+                    embeds: [embed]
+                });
+            }
         }
     }
 }
