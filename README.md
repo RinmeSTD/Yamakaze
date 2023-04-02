@@ -51,7 +51,7 @@ A Kancolle waifu Discord.JS bot
 
 <details>
 
-> U           Update
+> U/E         Update
 
 > A           Add
 
