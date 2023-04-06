@@ -71,6 +71,7 @@ Url: ${findd.data.ext_urls}
                 .setImage(findd.header.thumbnail);
 
             // Create the initial message with the first result
+            // eslint-disable-next-line no-unused-vars
             let message = await interaction.reply({
                 embeds: [embed],
             });
