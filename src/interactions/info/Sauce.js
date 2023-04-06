@@ -1,9 +1,9 @@
 const { MessageEmbed } = require('discord.js');
 const { ApplicationCommandOptionType } = require('discord-api-types/v10');
 const YamakazeInteraction = require('../../abstract/YamakazeInteraction.js');
-const { sauceNaoKey } = require('../../../config.json');
+const { sauceNaoApi } = require('../../../config.json');
 const { SauceNao } = require('saucenao.js');
-const sauce = new SauceNao({ api_key: sauceNaoKey });
+const sauce = new SauceNao({ api_key: sauceNaoApi });
 
 class Sauce extends YamakazeInteraction {
     get name() {
@@ -20,11 +20,13 @@ class Sauce extends YamakazeInteraction {
                 name: 'url',
                 type: ApplicationCommandOptionType.String,
                 description: 'Put url here to find sauce with sauceao!',
+                required: true
             },
             {
                 name: 'resultnum',
                 type: ApplicationCommandOptionType.String,
                 description: 'Put number here to view other result!',
+                required: false
             },
         ];
     }
@@ -53,52 +55,36 @@ class Sauce extends YamakazeInteraction {
         let defaultIndex = 0;
         const findd = await Sauce.find(url, num || defaultIndex);
 
-        if (!url) {
+        if (isValidURL(url)) {
             const embed = new MessageEmbed()
                 .setColor(this.client.color)
-                .setTitle('No url')
+                .setTitle(`Is this for you looking for? Vaild: ${isValidURL(url)}`)
                 .setDescription(
-                    `\`\`\`ml\n
-Please put the image's url :(\`\`\``
-                )
-                .setTimestamp()
-                .setFooter(
-                    this.client.user.username,
-                    this.client.user.displayAvatarURL()
-                );
-            return interaction.reply({ embeds: [embed] });
-        } else {
-            if (isValidURL(url)) {
-                const embed = new MessageEmbed()
-                    .setColor(this.client.color)
-                    .setTitle(`Is this for you looking for? Vaild: ${isValidURL(url)}`)
-                    .setDescription(
-                        `Result ${num || defaultIndex}:
+                    `Result ${num || defaultIndex}:
 Index name: ${findd.header.index_name}
 Similarity: ${findd.header.similarity}%
 Possibility Sauce: ${findd.data.source || findd.data.title}
 
 Url: ${findd.data.ext_urls}
 `
-                    )
-                    .setImage(findd.header.thumbnail);
+                )
+                .setImage(findd.header.thumbnail);
 
+            // Create the initial message with the first result
+            let message = await interaction.reply({
+                embeds: [embed],
+            });
+        } else {
+            const embed = new MessageEmbed()
+                .setColor(this.client.color)
+                .setTitle('That not a valid url :(')
+                .setThumbnail(
+                    'https://lastfm.freetls.fastly.net/i/u/300x300/66fb1457a2b95d5d0ba91c6b7a834e89.gif'
+                );
                 // Create the initial message with the first result
-                let message = await interaction.reply({
-                    embeds: [embed],
-                });
-            } else {
-                const embed = new MessageEmbed()
-                    .setColor(this.client.color)
-                    .setTitle('That not a valid url :(')
-                    .setThumbnail(
-                        'https://lastfm.freetls.fastly.net/i/u/300x300/66fb1457a2b95d5d0ba91c6b7a834e89.gif'
-                    );
-                // Create the initial message with the first result
-                return interaction.reply({
-                    embeds: [embed],
-                });
-            }
+            return interaction.reply({
+                embeds: [embed],
+            });
         }
     }
 }

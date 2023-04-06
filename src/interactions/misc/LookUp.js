@@ -25,6 +25,7 @@ class LookUp extends YamakazeInteraction {
                 name: 'ip',
                 type: ApplicationCommandOptionType.String,
                 description: 'Put ip address here to look up!',
+                required: true
             },
         ];
     }
@@ -57,28 +58,13 @@ class LookUp extends YamakazeInteraction {
         }
 
 
-        if (!ip) {
+        if (isValidIPAddress(ip)) {
+
             const embed = new MessageEmbed()
                 .setColor(this.client.color)
-                .setTitle('No IP')
+                .setTitle('We got them')
                 .setDescription(
                     `\`\`\`ml\n
-Please put the IP address :(\`\`\``
-                )
-                .setTimestamp()
-                .setFooter(
-                    this.client.user.username,
-                    this.client.user.displayAvatarURL()
-                );
-            return interaction.reply({ embeds: [embed] });
-        } else {
-            if (isValidIPAddress(ip)) {
-
-                const embed = new MessageEmbed()
-                    .setColor(this.client.color)
-                    .setTitle('We got them')
-                    .setDescription(
-                        `\`\`\`ml\n
 ${await ipinfo.lookupIp(ip).then((response) => {
 
         return (
@@ -94,23 +80,23 @@ Timezone      ::      ${response.timezone}`
         );
     })
 }\`\`\``)
-                    .setTimestamp()
-                    .setFooter(
-                        this.client.user.username,
-                        this.client.user.displayAvatarURL()
-                    );
-                return interaction.reply({ embeds: [embed] });
-            } else {
-                const embed = new MessageEmbed()
-                    .setColor(this.client.color)
-                    .setTitle('That not a valid url :(')
-                    .setThumbnail('https://lastfm.freetls.fastly.net/i/u/300x300/66fb1457a2b95d5d0ba91c6b7a834e89.gif');
+                .setTimestamp()
+                .setFooter(
+                    this.client.user.username,
+                    this.client.user.displayAvatarURL()
+                );
+            return interaction.reply({ embeds: [embed] });
+        } else {
+            const embed = new MessageEmbed()
+                .setColor(this.client.color)
+                .setTitle('That not a valid IP Address :(')
+                .setThumbnail('https://lastfm.freetls.fastly.net/i/u/300x300/66fb1457a2b95d5d0ba91c6b7a834e89.gif');
                 // Create the initial message with the first result
-                return interaction.reply({
-                    embeds: [embed]
-                });
-            }
+            return interaction.reply({
+                embeds: [embed]
+            });
         }
     }
 }
+
 module.exports = LookUp;

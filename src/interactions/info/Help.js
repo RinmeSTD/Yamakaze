@@ -15,7 +15,7 @@ class Help extends YamakazeInteraction {
         return [{
             name: 'command',
             type: ApplicationCommandOptionType.String,
-            description: 'Specific command help'
+            description: 'Specific command help',
         }];
     }
 
