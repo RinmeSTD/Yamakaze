@@ -26,11 +26,11 @@ class Ready extends YamakazeEvent {
             this.client.shard.broadcastEval(() => process.memoryUsage()),
         ]);
         const statuses = [
-            { type: 'LISTENING', message: `私は ${guilds.reduce((sum, count) => sum + count)}ギルド と ${channels.reduce((sum, count) => sum + count)}チャネル` },
+            { type: 'WATCHING', message: `私は ${guilds.reduce((sum, count) => sum + count)} ギルド と ${channels.reduce((sum, count) => sum + count)}チャネル` },
             { type: 'PLAYING', message: '横に行って…いい？' },
-            { type: 'LISTENING', message: `${Ready.convertBytes(memory.reduce((sum, memory) => sum + memory.rss, 0))}以内にシャード ${shardCount} つ、クラスタ ${clusterCount} つ` },
+            { type: 'WATCHING', message: `${Ready.convertBytes(memory.reduce((sum, memory) => sum + memory.rss, 0))}以内にシャード ${shardCount} つ、クラスタ ${clusterCount} つ` },
             { type: 'PLAYING', message: '両舷いっぱい！行け！' },
-            { type: 'LISTENING', message: 'どうしたの？疲れたの？そっか。お茶でも、飲む？入れようっか。いや、あたしも飲みたいから。別に、気にしないで。待ってて。' },
+            { type: 'PLAYING', message: 'どうしたの？疲れたの？そっか。お茶でも、飲む？入れようっか。いや、あたしも飲みたいから。別に、気にしないで。待ってて。' },
         ];
         let i = 0;
         this.interval = setInterval(() => {
