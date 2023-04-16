@@ -34,25 +34,41 @@ class LookUp extends YamakazeInteraction {
         let ip = interaction.options.getString('ip');
 
         function isValidIPAddress(ip) {
-            // Regular expression to match the IP address pattern
-            const ipPattern = /^(\d{1,3}\.){3}\d{1,3}$/;
-
-            // Test if the given string matches the pattern
-            if (!ipPattern.test(ip)) {
+            // Regular expressions to match the IPv4 and IPv6 address patterns
+            const ipv4Pattern = /^(\d{1,3}\.){3}\d{1,3}$/;
+            const ipv6Pattern = /^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/;
+        
+            // Test if the given string matches either IPv4 or IPv6 pattern
+            if (!ipv4Pattern.test(ip) && !ipv6Pattern.test(ip)) {
                 return false;
             }
-
-            // Split the IP address into its individual parts
-            const parts = ip.split('.');
-
-            // Check if each part is a number between 0 and 255
-            for (let i = 0; i < parts.length; i++) {
-                const part = parseInt(parts[i]);
-                if (isNaN(part) || part < 0 || part > 255) {
-                    return false;
+        
+            // Check if the given string matches the IPv4 pattern
+            if (ipv4Pattern.test(ip)) {
+                // Split the IP address into its individual parts
+                const parts = ip.split('.');
+                // Check if each part is a number between 0 and 255
+                for (let i = 0; i < parts.length; i++) {
+                    const part = parseInt(parts[i]);
+                    if (isNaN(part) || part < 0 || part > 255) {
+                        return false;
+                    }
                 }
             }
-
+        
+            // Check if the given string matches the IPv6 pattern
+            if (ipv6Pattern.test(ip)) {
+                // Split the IP address into its individual parts
+                const parts = ip.split(':');
+                // Check if each part is a valid hexadecimal number
+                for (let i = 0; i < parts.length; i++) {
+                    const part = parseInt(parts[i], 16);
+                    if (isNaN(part) || part < 0 || part > 65535) {
+                        return false;
+                    }
+                }
+            }
+        
             // All checks pass, so the IP address is valid
             return true;
         }
