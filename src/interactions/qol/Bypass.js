@@ -18,6 +18,7 @@ class Bypass extends YamakazeInteraction {
                 name: 'url',
                 type: ApplicationCommandOptionType.String,
                 description: 'Put url here to bypass!',
+                required: true
             },
         ];
     }
@@ -33,14 +34,18 @@ class Bypass extends YamakazeInteraction {
             return urlPattern.test(url);
         }
 
-        if (!url) {
+        if (isValidURL(url)) {
+
             const embed = new MessageEmbed()
                 .setColor(this.client.color)
-                .setTitle('No url')
+                .setTitle('Destination founded')
                 .setDescription(
                     `\`\`\`ml\n
-Please put the url :(\`\`\``
-                )
+${await axios.get(`https://bypass.pm/bypass2?url=${url}`)
+        .then(respond => {
+            return respond.data.destination;
+        })
+}\`\`\``)
                 .setTimestamp()
                 .setFooter(
                     this.client.user.username,
@@ -48,35 +53,16 @@ Please put the url :(\`\`\``
                 );
             return interaction.reply({ embeds: [embed] });
         } else {
-            if (isValidURL(url)) {
-
-                const embed = new MessageEmbed()
-                    .setColor(this.client.color)
-                    .setTitle('Destination founded')
-                    .setDescription(
-                        `\`\`\`ml\n
-${await axios.get(`https://bypass.pm/bypass2?url=${url}`)
-        .then(respond => {
-            return respond.data.destination;
-        })
-}\`\`\``)
-                    .setTimestamp()
-                    .setFooter(
-                        this.client.user.username,
-                        this.client.user.displayAvatarURL()
-                    );
-                return interaction.reply({ embeds: [embed] });
-            } else {
-                const embed = new MessageEmbed()
-                    .setColor(this.client.color)
-                    .setTitle('That not a valid url :(')
-                    .setThumbnail('https://lastfm.freetls.fastly.net/i/u/300x300/66fb1457a2b95d5d0ba91c6b7a834e89.gif');
+            const embed = new MessageEmbed()
+                .setColor(this.client.color)
+                .setTitle('That not a valid url :(')
+                .setThumbnail('https://lastfm.freetls.fastly.net/i/u/300x300/66fb1457a2b95d5d0ba91c6b7a834e89.gif');
                 // Create the initial message with the first result
-                return interaction.reply({
-                    embeds: [embed]
-                });
-            }
+            return interaction.reply({
+                embeds: [embed]
+            });
         }
     }
 }
+
 module.exports = Bypass;
