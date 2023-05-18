@@ -613,10 +613,10 @@ imurmurhash@^0.1.4:
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
   integrity sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==
 
-indomitable@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/indomitable/-/indomitable-2.1.0.tgz#68e76a3b34d62cff0edacc5e26577f35c9e9a95b"
-  integrity sha512-9chJQmijLWMl01Nf10Qif3h5n9gCpDs+y8qJ0dxmupLFqkRDD99YFULiP+3zabR56bvZSivRKP3jWCZci0rfIA==
+indomitable@^2.2.1:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/indomitable/-/indomitable-2.2.2.tgz#a75966c4dfab1fc1cb3dde3443e3eb2041b72c6a"
+  integrity sha512-28E1uEMTHGnLID9z3qpSFexSujVRyyBtUKz8DJIF6hIuAKU6WyDcY7++bvmTyUm60yZSUkm9aUdkKK//bc7RgA==
 
 inflight@^1.0.4:
   version "1.0.6"
