@@ -69,7 +69,7 @@ class InteractionHandler extends EventEmitter {
             throw error;
         }
 
-        this.client.logger.log(this.constructor.name, '---- Live reload completed ----');
+        this.client.logger.log(this.constructor.name, 'Debug: Live reload completed\nPlease Beware reload might break things');
         return this; // For the sake of transparency, this behaves just as build()
     }
 
