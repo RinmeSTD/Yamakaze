@@ -51,6 +51,7 @@ class Stats extends YamakazeInteraction {
             .setTitle('Status')
             .setDescription(`\`\`\`ml\n
 Uptime        :: ${Stats.uptimeConvert(process.uptime())}
+Server Date   :: 
 
 Guilds        :: ${guilds.reduce((sum, count) => sum + count)}
 Channels      :: ${channels.reduce((sum, count) => sum + count)}

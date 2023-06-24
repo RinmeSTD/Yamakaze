@@ -16,7 +16,7 @@ class Queue extends Map {
                 shardId: guild.shardId,
                 channelId: member.voice.channelId
             });
-            this.client.logger.debug(player.constructor.name, `New connection @ guild "${guild.id}"`);
+            this.client.logger.debug(player.constructor.name, `New connection "@${guild.id}"`);
             const dispatcher = new YamakazeDispatcher({
                 client: this.client,
                 guild,
@@ -25,7 +25,7 @@ class Queue extends Map {
             });
             dispatcher.queue.push(track);
             this.set(guild.id, dispatcher);
-            this.client.logger.debug(dispatcher.constructor.name, `New player dispatcher @ guild "${guild.id}"`);
+            this.client.logger.debug(dispatcher.constructor.name, `New player dispatcher "@${guild.id}"`);
             return dispatcher;
         }
         existing.queue.push(track);
