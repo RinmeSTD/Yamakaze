@@ -1,8 +1,0 @@
-{
-  "shardCount": 8,
-  "clusterCount": 4,
-  "owners": ["your account id"],
-  "token": "bot token - https://discord.com/developers/applications/",
-  "ipInfoApi": "to use lookup command - https://ipinfo.io/developers",
-  "sauceNaoKey": "to use saucenao api - https://saucenao.com/user.php?page=search-api "
-}
