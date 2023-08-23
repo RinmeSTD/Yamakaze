@@ -35,7 +35,7 @@
     "discord-api-types": "^0.37.42",
     "discord.js": "^13.14.0",
     "indomitable": "^2.2.2",
-    "msgpackr": "^1.8.5",
+    "msgpackr": "^1.9.6",
     "node-ipinfo": "^3.4.0",
     "saucenao.js": "^1.0.5",
     "shoukaku": "^3.4.0",
