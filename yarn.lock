@@ -167,11 +167,6 @@
   resolved "https://registry.yarnpkg.com/@tokenizer/token/-/token-0.3.0.tgz#fe98a93fe789247e998c75e74e9c7c63217aa276"
   integrity sha512-OvjF+z51L3ov0OyAU0duzsYuvO01PH7x4t6DJx+guahgTnBHkhJdG7soQeTSFLWN3efnHyibZ4Z8l2EuWwJN3A==
 
-"@types/lru-cache@^5.1.1":
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/@types/lru-cache/-/lru-cache-5.1.1.tgz#c48c2e27b65d2a153b19bfc1a317e30872e01eef"
-  integrity sha512-ssE3Vlrys7sdIzs5LOxCzTVMsU7i9oa/IaW92wF32JFb3CVczqOkru2xspuKczHEbG3nvmPY7IFqVmGGHdNbYw==
-
 "@types/node-fetch@^2.6.3":
   version "2.6.4"
   resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.6.4.tgz#1bc3a26de814f6bf466b25aeb1473fa1afe6a660"
@@ -768,12 +763,11 @@ node-gyp-build@^4.3.0:
   resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.6.0.tgz#0c52e4cbf54bbd28b709820ef7b6a3c2d6209055"
   integrity sha512-NTZVKn9IylLwUzaKjkas1e4u2DLNcV4rdYagA4PWdPwW87Bi7z+BznyKSRwS/761tV/lzCGXplWsiaMjLqP2zQ==
 
-node-ipinfo@^3.4.0:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/node-ipinfo/-/node-ipinfo-3.4.2.tgz#f131e0556df8d6704c14102902135a67d0c68c6f"
-  integrity sha512-C9pqQ4K3BNTCJT/gzIbOFMdWuVaBz415wWg4pmJytUug9jiwBfGiBBE4bXJZGom6X8sr1wKl2943bLDydUW1ww==
+node-ipinfo@^3.4.4:
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/node-ipinfo/-/node-ipinfo-3.4.4.tgz#d05d5adb952ce29a130eebef978360599ee5d7ac"
+  integrity sha512-m+9qWY28AkgAPU/8vysiSCld2zj7VI1+3dOQESyKlx2C47RladtK4KdQN7oHlRkIGNSbeztahkvlA0lU3qKT2Q==
   dependencies:
-    "@types/lru-cache" "^5.1.1"
     lru-cache "^6.0.0"
     subnet-check "^1.10.1"
 
