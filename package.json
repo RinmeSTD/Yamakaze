@@ -1,0 +1,65 @@
+{
+  "name": "yamakases",
+  "version": "4.0.0",
+  "description": "multi purpose discord bot with help of Shoukaku and Indomitable",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "clean:ts": "tsc --build --clean",
+    "build:ts": "tsc --build",
+    "build": "yarn run clean:ts && yarn run build:ts",
+    "lint": "eslint --fix --ext .ts",
+    "start": "node index.js",
+    "dev": "node index.js | pino-pretty -c -l -t yyyy/mm/dd,HH:MM:ss -i hostname,pid"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deivu/Kongou.git"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=7.0.0"
+  },
+  "keywords": [
+    "Discord",
+    "Bot",
+    "Waifu",
+    "music-bot",
+    "template-bot",
+    "discord.js",
+    "discord-js",
+    "discordjs",
+    "music"
+  ],
+  "author": "Deivu (Saya)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Deivu/Kongou/issues"
+  },
+  "homepage": "https://github.com/Deivu/Kongou#readme",
+  "dependencies": {
+    "@discordjs/rest": "^2.0.0",
+    "denque": "^2.1.0",
+    "discord-api-types": "^0.37.66",
+    "discord.js": "^14.14.1",
+    "indomitable": "^4.1.0",
+    "kearsarge": "^1.0.1",
+    "pino": "^8.17.1",
+    "shoukaku": "^4.0.1",
+    "url-exist": "^3.0.1",
+    "ytdl-core": "^4.11.5"
+  },
+  "devDependencies": {
+    "@augu/eslint-config": "^5.0.0",
+    "@types/node": "^20.10.5",
+    "@types/node-fetch": "^2.6.9",
+    "@types/ws": "^8.5.10",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "pino-pretty": "^10.3.0",
+    "tsup": "^8.0.1",
+    "typedoc": "^0.25.4",
+    "typescript": "^5.3.3"
+  }
+}

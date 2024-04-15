@@ -1,0 +1,11 @@
+# eclipse project
+.project
+.settings
+.idea
+.vscode
+/Config.json
+/Lavalink.json
+/dist
+out
+node_modules
+package-lock.json

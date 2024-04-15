@@ -1,0 +1,15 @@
+{
+	"level": "",
+	"owners": [""],
+	"token": "",
+	"ipInfoApi": "",
+	"sauceNaoApi": "",
+	"shards": null,
+	"clusters": null,
+	"slashOptions": {
+		"update": false,
+		"dev": false,
+		"clear": false,
+		"guildId": ""
+	}
+}
