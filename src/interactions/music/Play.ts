@@ -4,8 +4,6 @@ import { CommandOptions, Interaction } from "../../structure/Interaction.js";
 import { Yamakaze } from "../../Yamakaze.js";
 import { InteractionContext } from "../../structure/InteractionContext.js";
 import { LoadType, Track } from "shoukaku";
-import urlExist from "url-exist";
-import ytdl from "ytdl-core";
 
 
 export const CommandData = new SlashCommandBuilder()
@@ -60,7 +58,7 @@ export default class Play extends Interaction {
         if (!node) throw new Error("No nodes available");
 
         const result = await node.rest.resolve(query);
-        
+
         if (!result || [LoadType.ERROR, LoadType.EMPTY].includes(result.loadType))
             return await context.sendInteractionMessage(
                 "Unfortunately, there are no results for your query"
