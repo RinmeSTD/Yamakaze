@@ -11,6 +11,7 @@ export const CommandData = new SlashCommandBuilder()
         option
             .setName('target')
             .setDescription('The user')
+            .setRequired(true)
     )
     .toJSON();
 
