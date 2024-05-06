@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/Deivu/Kongou#readme",
   "dependencies": {
-    "@discordjs/rest": "^2.0.0",
+    "@discordjs/rest": "^2.3.0",
     "@tobyg74/tiktok-api-dl": "^1.1.2",
     "denque": "^2.1.0",
     "discord-api-types": "^0.37.66",
