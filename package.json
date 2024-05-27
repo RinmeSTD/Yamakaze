@@ -41,7 +41,7 @@
     "@discordjs/rest": "^2.0.0",
     "@tobyg74/tiktok-api-dl": "^1.1.2",
     "denque": "^2.1.0",
-    "discord-api-types": "^0.37.66",
+    "discord-api-types": "^0.37.85",
     "discord.js": "^14.14.1",
     "indomitable": "^4.1.0",
     "kearsarge": "^1.0.1",
