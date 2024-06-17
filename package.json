@@ -45,7 +45,7 @@
     "discord.js": "^14.14.1",
     "indomitable": "^4.1.0",
     "kearsarge": "^1.0.1",
-    "pino": "^8.17.1",
+    "pino": "^9.2.0",
     "shoukaku": "^4.0.1",
     "url-exist": "^3.0.1",
     "ytdl-core": "^4.11.5"
